@@ -201,6 +201,13 @@
     <child link="lidar_center_sensor"/>
     <origin xyz="1.6 0.0 1.91" rpy="-0.017 -0.007 -0.06"/>
   </joint>
+  
+  <link name="camera_front_wide"/>
+  <joint name="base_link_to_camera_front_wide_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_front_wide"/>
+    <origin xyz="-0.424 0.003 -0.006" rpy="0.245 -1.519 -0.295"/>
+  </joint>
 
   <link name="camera_front_left"/>
   <joint name="camera_front_wide_to_camera_front_left_joint" type="fixed">
@@ -222,7 +229,7 @@
     <child link="camera_front_right"/>
     <origin xyz="0.532 0.005 -0.036" rpy="2.336 1.53 2.353"/>
   </joint>
-
+  
   <link name="camera_back_right"/>
   <joint name="camera_front_wide_to_camera_back_right_joint" type="fixed">
     <parent link="camera_front_wide"/>

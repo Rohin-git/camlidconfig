@@ -30,7 +30,7 @@ class StatePublisher(Node):
 
                 # Update joint states and broadcast transforms
                 for joint_name, joint in self.urdf_model.joints.items():
-                    if joint.type != 'fixed':
+                    if joint.type == 'fixed':
                         # Replace with actual joint position if available
                         joint_state.name.append(joint_name)
                         joint_state.position.append(0.0)  # Placeholder for actual joint position
