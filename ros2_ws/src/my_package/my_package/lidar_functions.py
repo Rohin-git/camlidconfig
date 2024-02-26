@@ -31,7 +31,7 @@ def crop_car_lidar(path):
     
     dists = pcd.compute_point_cloud_distance(source)
     dists = np.asarray(dists)
-    ind = np.where(dists > 0.1)[0]
+    ind = np.where(dists > 1.3)[0]
     pcd_without_car = pcd.select_by_index(ind)
     o3d.visualization.draw_geometries([pcd_without_car],
                                   zoom=0.3412,
