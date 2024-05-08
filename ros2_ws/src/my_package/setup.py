@@ -22,6 +22,8 @@ setup(
         'console_scripts': [
             'my_node = my_package.my_node:main',
             'lidar_functions_node = my_package.lidar_functions:main',
+            'depth_estimator_node = my_package.depth_estimator:main',
+            'depth_estimator_lid_cam_node = my_package.depth_estimator_combined:main',
             'camera_functions_node = my_package.camera_functions:main'
         ],
     },
