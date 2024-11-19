@@ -13,9 +13,9 @@ class PCDPublisher(Node):
 
     def __init__(self):
         super().__init__('pcd_publisher')
-        self.path_01 = "/home/rohin/camlid/camlidconfig/ros2_ws/src/my_package/ply_files/cam31.ply"
+        self.path_01 = "/home/rohin/camlid/camlidconfig/ros2_ws/src/my_package/ply_files/point_cloud_1_DA.ply"
         self.path_02 = "/home/rohin/camlid/camlidconfig/ros2_ws/src/my_package/ply_files/point_cloud_2_DA.ply"
-        self.path_npz = "/home/rohin/camlid/camlidconfig/ros2_ws/src/my_package/ply_files/lid31.npz"
+        self.path_npz = "/home/rohin/camlid/camlidconfig/ros2_ws/src/my_package/ply_files/lidar_01.npz"
 
         # Publishers
         self.pcd_pub1 = self.create_publisher(PointCloud2, '/pcd1_visualization', 10)
@@ -61,8 +61,8 @@ class PCDPublisher(Node):
         # Update the point clouds with new z-values
         self.pcd1.points = o3d.utility.Vector3dVector(self.points_pcd1)
         self.pcd2.points = o3d.utility.Vector3dVector(self.points_pcd2)
-        scale_factor = 0.08  # Example scale factor if your depth data is in millimeters
-        self.pcd1.points = o3d.utility.Vector3dVector(np.asarray(self.pcd1.points) * scale_factor)
+        scale_factor = 0.1  # Example scale factor if your depth data is in millimeters use 0.08
+        self.pcd1.points = o3d.utility.Vector3dVector(np.asarray(self.pcd1.points)* scale_factor)
         self.pcd2.points = o3d.utility.Vector3dVector(np.asarray(self.pcd2.points) * scale_factor)
         # Apply transformations
         self.apply_transformations()
